@@ -1,0 +1,26 @@
+
+#formulaire {
+    display: flex;
+    flex-wrap: wrap;
+
+    padding:10px;
+    justify-content: space-around;
+}
+input { margin-bottom:10px;}
+
+
+#connexion{  border: 1px solid black;
+                padding:20px;
+                
+}
+#inscription{  border: 1px solid black;
+                padding:20px;
+                
+}
+#p1 {color: red ;}
+
+#p2 {color: red ;}
+#p3 {color: red ;}
+#p4 {color: red ;}
+#p5 {color: red ;}
+#p6 {color: red ;}
