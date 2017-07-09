@@ -1,0 +1,33 @@
+Il faut rajouter un .gitignore
+Ce fichier a pour but de faire ignorer a GIT certains dossiers
+ou fichiers qui ne doivent pas être dans le repositoire.
+
+
+Par exemple tu as utilisé des modules node.
+
+mais tu n'as pas de package.json.
+
+
+
+Tu aurais du faire un "npm init":
+    renseigner les champs
+
+    ceci générera un package.json avec la liste de ce que tu installes
+
+ensuite fairedes install locaux par exemple:
+
+
+    1) npm install gulp-sass --save-dev
+    2) npm install gulp-livereload --save-dev
+    3) ...etc
+
+    ceci inscrira dans le package.json ce que tu install
+
+et grace au package.json je pourrai les charger moi même
+avec un npm install --only=dev
+
+pas besoin de faire un commit de tous les packages que tu installes
+
+-On en reparle si tu veux.
+
+
