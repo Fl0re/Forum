@@ -56,3 +56,13 @@ a{ text-decoration: none;
     justify-content: center;
     margin:auto;
 } 
+
+#formu{
+    display:flex;
+    justify-content: center;
+   width:300px;
+    flex-direction: column;
+}
+#des {
+    height:100px;
+}

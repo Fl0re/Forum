@@ -84,6 +84,20 @@ function verification2($email){
 
 }
 
+function affichage($sujet, $description){
+    $connexion = getconnexion();
+    $pdo = $connexion->prepare('INSERT INTO questions SET description=:description, sujet=:sujet');
+
+    $pdo->execute(array(
+      'description'=>$description,
+      'sujet' => $sujet
+     
+    ));
+
+    $result = $pdo->rowCount();
+    return $result;
+}
+
 // function nettoyer($username, $email, $password){
 //  $connexion = getconnexion();
 

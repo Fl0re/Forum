@@ -2,17 +2,17 @@
 session_start();
 header('Content-Type: text/html; charset=UTF8');
 
-if(!isset($_SESSION['question'])){
+if(!isset($_SESSION['questions'])){
   //on défini la session en tant que tableau
   //dans le cas ou elle n'existe pas
-  $_SESSION['question']=array();
+  $_SESSION['questions']=array();
 }
 
 if(!empty($_POST)){
-  $_SESSION['question'][]=$_POST;
+  $_SESSION['questions'][]=$_POST;
 }
 
-if(!empty($_SESSION['question'])){
+if(!empty($_SESSION['questions'])){
   $students = $_SESSION['etudiants'];
 }
 ?>
@@ -49,7 +49,7 @@ if(!empty($_SESSION['question'])){
            <a id="favoris" href="/"> Discussions favorite </a>
            <form action="service/servicedeco.php" method="post">
               <input type="submit" value="déconnexion" id="ok" />
-            <form>
+            </form>
      </section>
     <h1> FORUM </h1>
 
@@ -69,6 +69,18 @@ if(!empty($_SESSION['question'])){
     <div id="bouton">
          <h3>  Creer une discussion  </h2>
     </div>
+    <form  id="formu" action="service/serviceforum.php"  method="post">
+    <label> Sujet  </label> <br>
+    <input id="sujet" type="text" name="sujet"/> 
+    <label> Description </label>
+    <textarea id="description" type="text" name="description">
+
+
+      </textarea>
+          
+     <?php if (!empty($questions)) ?>
+         <input type="submit" value="valider" />
+    </form>
 </head>
 <body>
     
