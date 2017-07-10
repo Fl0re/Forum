@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,14 +10,34 @@
     <title>Document</title>
 </head>
 <body>
-    <h1> Forum de ta vie </h1>
+    <section id= "barre">
+    <h1> Codebook </h1>
+     <section id="connexion">
+
+            <form action="service/serviceconnect.php" method="post">
+
+                <label> Email </label> 
+             
+                <input type="email" id="emails" name="email"/>
+                <label> Mot de passe </label> 
+              
+                <input type="password" id="mdps" name="password"/>
+              
+
+
+                    <input type="submit" value="valider" id="ok" />
+            </form>
+        </section>
+        </section>
     <header> 
  <ul>
      
 
-    <section id= "formulaire">
+        <section id= "formulaire">
+           
+
         <section id="inscription" >
-            <h2> S'inscrire </h2> 
+            <h2> Creer un compte </h2> 
             <form  action="service/servicelogin.php" method="post">
       
                 <label> Surnom </label>
@@ -50,27 +72,7 @@
             </form> 
 
         </section>
-        <section id="connexion">
-            <h2> Connexion  </h2> 
-        <form>
-
-            <label> Surnom </label>
-            <br>
-            <input type="text" id="surnoms" name="surnom"/>
-            <br>
-            <label> Email </label>
-            <br>
-            <input type="email" id="emails" name="email"/>
-            <br>
-            <label> Mot de passe </label>
-            <br>
-            <input type="email" id="mdps" name="email"/>
-            <br>
-
-
-                <input type="submit" value="valider" id="ok" />
-</form>
-        </section>
+       
     </section>
 
     <script src="views/jquery-3.2.1.min.js"></script>

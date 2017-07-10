@@ -41,7 +41,7 @@ function getconnexion(){
     return $connexion;
 }
 function inscription($username, $email, $password){
-    $connexion = getconnection();
+    $connexion = getconnexion();
     $pdo = $connexion->prepare('INSERT INTO user SET username=:username, email=:email, uPassword=:uPassword ');
 
     $pdo->execute(array(

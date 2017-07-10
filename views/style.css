@@ -1,3 +1,5 @@
+body { background-color: #E5E6E9}
+
 
 #formulaire {
     display: flex;
@@ -5,15 +7,19 @@
 
     padding:10px;
     justify-content: space-around;
+ ;
 }
 input { margin-bottom:10px;}
 
 
-#connexion{  border: 1px solid black;
-                padding:20px;
+#connexion{ font-size: 12px;
+     display:inline-block;
+            top:5px;
+            right:100px;
+            margin-top:10px;}
                 
-}
-#inscription{  border: 1px solid black;
+
+#inscription{  
                 padding:20px;
                 
 }
@@ -24,3 +30,20 @@ input { margin-bottom:10px;}
 #p4 {color: red ;}
 #p5 {color: red ;}
 #p6 {color: red ;}
+
+#barre {display: flex;
+    flex-wrap:wrap;
+    justify-content: space-around;
+    background-color: #3b5998;
+    width:100%;
+    }
+
+#barre label, h1 { color:white}
+
+#formulaire input { border-radius: 5px;}
+
+ h2  {font-size:30px;}
+ 
+#inscription label {font-size:20px;}
+
+ #inscription input { padding:5px; width:200px;}

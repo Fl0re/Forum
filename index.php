@@ -32,6 +32,15 @@
         include("views/formulaire.php");
         break;
 
+
+          case "profil": // views/formulaire.php
+        $feedback = getFeedback();
+        $nombreUtilisateur = getNombreUtilisateurs();
+        // var_dump($feedback);
+        // die();
+        include("views/profil.php");
+        break;
+
       // Créer une nouvelle page (juste un template)
     }
 
