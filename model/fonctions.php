@@ -42,15 +42,60 @@ function getconnexion(){
 }
 function inscription($username, $email, $password){
     $connexion = getconnexion();
-    $pdo = $connexion->prepare('INSERT INTO user SET username=:username, email=:email, uPassword=:uPassword ');
+    $pdo = $connexion->prepare('INSERT INTO user SET username=:username, email=:email, uPassword=:password ');
 
     $pdo->execute(array(
       'username'=>$username,
       'email' => $email,
-      'uPassword'=>$password
+      'password'=>$password
     ));
 
     $result = $pdo->rowCount();
     return $result;
 }
+function verification($email){
+  $connexion = getconnexion();
+
+
+  $pdo = $connexion->prepare('SELECT username FROM user WHERE  email=:email');
+  $pdo->execute(
+    array(
+      'email'=>$email,
+     
+    ));
+  $user = $pdo->fetchAll(PDO::FETCH_ASSOC);
+
+  return $user;
+
+}
+function verification2($email){
+  $connexion = getconnexion();
+
+
+  $pdo = $connexion->prepare('SELECT uPassword FROM user WHERE  email=:email');
+  $pdo->execute(
+    array(
+      'email'=>$email,
+     
+    ));
+  $user = $pdo->fetchAll(PDO::FETCH_ASSOC);
+
+  return $user;
+
+}
+
+// function nettoyer($username, $email, $password){
+//  $connexion = getconnexion();
+
+
+//   $pdo = $connexion->prepare('DELETE FROM USER WHERE username=:username, email=:email, uPassword=:uPassword ');
+//   $pdo->execute(array(
+//     'username'=>$username,
+//       'email' => $email,
+//       'uPassword'=>$password
+//   ));
+//   return $pdo->rowCount();
+
+
+//}
  ?>

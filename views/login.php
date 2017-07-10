@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,10 +17,10 @@
 
                 <label> Email </label> 
              
-                <input type="email" id="emails" name="email"/>
+                <input type="text" id="email" name="emails"/>
                 <label> Mot de passe </label> 
               
-                <input type="password" id="mdps" name="password"/>
+                <input type="password" id="mdps" name="passwords"/>
               
 
 
@@ -62,22 +61,26 @@
                 <input type="checkbox" id="robot"><br>
 
             
-                <p id="p1" class="p"></p>
-                <p id="p2"></p>
-                <p id="p3"></p>
-                <p id="p4"></p>
-                <p id="p5"></p>
-                <p id="p6"></p>
-                    <input type="submit" value="valider" />
+              
+                    <input type="submit" value="valider" /> <br>
+                    <?php
+
+if(!empty($password) && !empty($username) && !empty($email)){
+    if($password==$cpassword){
+        echo "Tout est ok";
+    }
+     
+}
+else echo "Vous n'avez pas remplis tout les champs obligatoires"; 
+
+?>
             </form> 
 
         </section>
        
     </section>
 
-    <script src="views/jquery-3.2.1.min.js"></script>
-    <script src="views/easing.js"></script>
-     <script src="views/script.js"></script>
+
 
 </body>
 </html>
