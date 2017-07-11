@@ -84,19 +84,68 @@ function verification2($email){
 
 }
 
-function affichage($sujet, $description){
+function verificationusername($email){
+  $connexion = getconnexion();
+
+
+  $pdo = $connexion->prepare('SELECT username FROM user WHERE  email=:email');
+  $pdo->execute(
+    array(
+      'email'=>$email,
+     
+    ));
+  $user = $pdo->fetchAll(PDO::FETCH_ASSOC);
+
+  return $user;
+
+}
+function affichage($sujet, $description, $username){
     $connexion = getconnexion();
-    $pdo = $connexion->prepare('INSERT INTO questions SET description=:description, sujet=:sujet');
+    $pdo = $connexion->prepare('INSERT INTO questions SET description=:description, sujet=:sujet, username=:username, datecreate=NOW()');
 
     $pdo->execute(array(
       'description'=>$description,
-      'sujet' => $sujet
-     
+      'sujet' => $sujet,
+      'username' => $username
+      
     ));
 
     $result = $pdo->rowCount();
     return $result;
 }
+
+function getquestions(){
+  $connexion = getconnexion();
+$object = $connexion->prepare('SELECT * FROM questions');
+ $object->execute(array());
+$questions = $object->fetchAll(PDO::FETCH_ASSOC);
+return $questions;
+ }
+function insertforum($textes, $question, $username){
+    $connexion = getconnexion();
+    $pdo = $connexion->prepare('INSERT INTO forums SET question=:question, textes=:textes, username=:username, datecreate=NOW()');
+
+    $pdo->execute(array(
+      'question'=>$question,
+      'textes' => $textes,
+      'username' => $username
+      
+    ));
+
+    $result = $pdo->rowCount();
+    return $result;
+}
+
+function getforums(){
+  $connexion = getconnexion();
+$object = $connexion->prepare('SELECT * FROM forums');
+ $object->execute(array());
+$forums = $object->fetchAll(PDO::FETCH_ASSOC);
+return $forums;
+ }
+
+
+
 
 // function nettoyer($username, $email, $password){
 //  $connexion = getconnexion();

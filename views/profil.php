@@ -2,19 +2,7 @@
 session_start();
 header('Content-Type: text/html; charset=UTF8');
 
-if(!isset($_SESSION['questions'])){
-  //on défini la session en tant que tableau
-  //dans le cas ou elle n'existe pas
-  $_SESSION['questions']=array();
-}
 
-if(!empty($_POST)){
-  $_SESSION['questions'][]=$_POST;
-}
-
-if(!empty($_SESSION['questions'])){
-  $students = $_SESSION['etudiants'];
-}
 ?>
 
 
@@ -54,33 +42,99 @@ if(!empty($_SESSION['questions'])){
     <h1> FORUM </h1>
 
     <p> Bienvenue sur le forum </p>
-    <!--<section id="seconglet">
-        <ul id="ulonglet">
-            <li> <a href="#accueil"> Accueil </a> </li>
-            <li> <a href="#mode"> Mode </a> </li>
-            <li> <a href="#actualité">Actualité </a> </li>
-            <li> <a href="#maman"> Maman </a> </li>
-            <li> <a href="#bébé"> Bébé </a></li>
-            <li> <a href="#cusine"> Cuisine </a></li>
     
-        </ul>
-
-    </section>-->
     <div id="bouton">
          <h3>  Creer une discussion  </h2>
     </div>
-    <form  id="formu" action="service/serviceforum.php"  method="post">
+
+<session id= "formuforum">
+       <form   action="service/servicevraiforum.php"  method="post">
     <label> Sujet  </label> <br>
-    <input id="sujet" type="text" name="sujet"/> 
-    <label> Description </label>
+    <input id="question" type="text" name="question"/> <br>
+    <label> Description </label><br>
+    <textarea id="textes" type="text" name="textes">
+  </textarea> <br> 
+      <input type="submit" value="valider" />
+
+    </form>
+    
+</session>
+
+ <?php if (!empty($forums)):
+  ?>
+
+        <?php 
+
+       $forums= getforums(); 
+       foreach($forums as $result){
+                echo($result["question"]);
+                echo"<br>";
+                
+       }
+
+        foreach($forums as $result){
+                echo($result["username"]);
+                echo"<br>";
+                  echo($result["datecreate"]); 
+                 echo"<br>";
+                echo($result["textes"]);   
+                 echo"<br>";
+                 echo"<br>";
+                 
+               
+       
+        }
+       
+
+  ?>
+
+  <session id="sms">
+     <?php endif; ?>
+
+           <?php if (!empty($questions)):?>
+        <?php 
+
+       $questions= getquestions(); 
+       foreach($questions as $result){
+                echo($result["sujet"]);
+                echo"<br>";
+                
+       }
+
+        foreach($questions as $result){
+                echo($result["username"]);
+                echo"<br>";
+                  echo($result["datecreate"]); 
+                 echo"<br>";
+                echo($result["description"]);   
+                 echo"<br>";
+                 echo"<br>";
+                 
+               
+       
+        }
+       
+
+  ?>
+     <?php endif; ?>
+
+     <session id="discut">
+    <form  id="formu" action="service/serviceforum.php"  method="post">
+    
+    <label> Discution personne connectées </label>
     <textarea id="description" type="text" name="description">
 
 
       </textarea>
           
-     <?php if (!empty($questions)) ?>
+   
          <input type="submit" value="valider" />
+
     </form>
+
+    </session>
+
+    </session>
 </head>
 <body>
     

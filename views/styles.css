@@ -62,7 +62,31 @@ a{ text-decoration: none;
     justify-content: center;
    width:300px;
     flex-direction: column;
+ 
+ 
 }
 #des {
     height:100px;
+}
+
+#discut textarea {width:150px;}
+#discut input {width:150px;}
+
+#formuforum{
+    display:flex;
+    justify-content: center;
+    
+}
+
+#formuforum input {
+    width:500px;
+}
+
+#formuforum textarea {
+    width:500px;
+    padding:50px;
+}
+
+#sms{
+    background-color:white;
 }

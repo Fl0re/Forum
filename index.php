@@ -36,9 +36,20 @@
           case "profil": // views/formulaire.php
         $feedback = getFeedback();
         $nombreUtilisateur = getNombreUtilisateurs();
-        // var_dump($feedback);
-        // die();
+        $questions= getquestions();
+        $forums = getforums();
+        //  var_dump($questions);
+        //  die();
         include("views/profil.php");
+        break;
+
+        case "Votreforum": // views/formulaire.php
+        $feedback = getFeedback();
+        $nombreUtilisateur = getNombreUtilisateurs();
+   
+        //  var_dump($questions);
+        //  die();
+        include("views/Votreforum.php");
         break;
 
       // Créer une nouvelle page (juste un template)

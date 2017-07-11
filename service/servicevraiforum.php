@@ -1,8 +1,8 @@
 <?php
 
 include "../model/fonctions.php";
-  $sujet= $_POST["sujet"];
-  $description = $_POST["description"];
+  $question= $_POST["question"];
+  $textes = $_POST["textes"];
  
  session_start();
 header('Content-Type: text/html; charset=UTF8');
@@ -10,7 +10,7 @@ header('Content-Type: text/html; charset=UTF8');
 
 $username =$_SESSION['questions'];
 
-$result= affichage($sujet, $description, $username );
+$result= insertforum($question, $textes, $username );
 
 
 if($result==1){
