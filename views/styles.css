@@ -84,9 +84,52 @@ a{ text-decoration: none;
 
 #formuforum textarea {
     width:500px;
-    padding:50px;
+    height:100px;
 }
 
 #sms{
     background-color:white;
+}
+
+#forumstyle{
+display:flex;
+justify-content: center;
+flex-direction: column;
+
+}
+
+#styledes{ width:500px;
+            height:auto;
+            margin:auto;
+            margin-bottom: 10px;
+            padding:5px;
+          background-color: white;
+          
+            border-bottom: 1px solid black;}
+
+            #username{ background-color: orangered;
+            }
+
+#styletitre{
+    margin:auto;
+    border:1px solid black;
+    background-color: white;
+    padding:5px;
+}
+
+#bulle{
+    background-color: mediumturquoise;
+    border-radius:5px;
+    margin-bottom: 5px;
+    width:150px;
+    color:blue;
+}
+
+#descri{
+    font-size:20px;
+    color:black;
+}
+
+#usr { background-color: orangered;
+        color:white;
 }

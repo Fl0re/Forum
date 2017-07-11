@@ -121,6 +121,7 @@ $object = $connexion->prepare('SELECT * FROM questions');
 $questions = $object->fetchAll(PDO::FETCH_ASSOC);
 return $questions;
  }
+
 function insertforum($textes, $question, $username){
     $connexion = getconnexion();
     $pdo = $connexion->prepare('INSERT INTO forums SET question=:question, textes=:textes, username=:username, datecreate=NOW()');
@@ -147,18 +148,17 @@ return $forums;
 
 
 
-// function nettoyer($username, $email, $password){
-//  $connexion = getconnexion();
+function supprimer($id){
+ $connexion = getconnexion();
 
 
-//   $pdo = $connexion->prepare('DELETE FROM USER WHERE username=:username, email=:email, uPassword=:uPassword ');
-//   $pdo->execute(array(
-//     'username'=>$username,
-//       'email' => $email,
-//       'uPassword'=>$password
-//   ));
-//   return $pdo->rowCount();
+  $pdo = $connexion->prepare('DELETE FROM forums WHERE id=:id ');
+  $pdo->execute(array(
+    'id'=>$id,
+     
+  ));
+  return $pdo->rowCount();
 
 
-//}
+}
  ?>

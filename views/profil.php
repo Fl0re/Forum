@@ -60,34 +60,49 @@ header('Content-Type: text/html; charset=UTF8');
     
 </session>
 
+<session id="forumstyle">
  <?php if (!empty($forums)):
   ?>
 
         <?php 
-
+ echo"<br>";
+  echo "<section id='styletitre'>";
+  echo"<p> Sujet: </p>";
        $forums= getforums(); 
        foreach($forums as $result){
-                echo($result["question"]);
+                 echo($result["textes"]);
                 echo"<br>";
-                
-       }
-
+            echo"</section>";    
+      }
+ echo"<br>";
         foreach($forums as $result){
-                echo($result["username"]);
+            
+            echo "<section id='styledes'>";
+            echo" <form   action='service/servicesupprimer.php'  method='post'>";
+                echo" <input  type='submit' value='X' id='ok' />";
+                echo"<input type='hidden' name='id' value='{$result['id']}' />";
+              
+            echo"</form>";
                 echo"<br>";
-                  echo($result["datecreate"]); 
+                echo "<div id='username'>";
+                echo($result["username"]);
+                
+                echo"<br>";
+                echo($result["datecreate"]); 
+                echo"</div>";
+                echo"<br>";
+                echo"<br>";
+                echo($result["question"]);   
+                echo"<br>";
                  echo"<br>";
-                echo($result["textes"]);   
-                 echo"<br>";
-                 echo"<br>";
-                 
-               
-       
+            
+             echo"</section>";
+  
         }
-       
-
+     
+ 
   ?>
-
+</session>
   <session id="sms">
      <?php endif; ?>
 
@@ -102,15 +117,21 @@ header('Content-Type: text/html; charset=UTF8');
        }
 
         foreach($questions as $result){
+            echo"<section id='bulle'>";
+            echo"<div id='usr'>";
                 echo($result["username"]);
                 echo"<br>";
                   echo($result["datecreate"]); 
                  echo"<br>";
+                 echo"</div>";
+                 echo"<br>";
+                 echo"<div id='descri'>";
                 echo($result["description"]);   
                  echo"<br>";
-                 echo"<br>";
-                 
-               
+                echo"</div>";
+                 echo"</section>";
+            
+       
        
         }
        
