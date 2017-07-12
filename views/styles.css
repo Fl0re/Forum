@@ -38,17 +38,17 @@ a{ text-decoration: none;
    font-size:25px;
    color :black
   }
-#barre{ width: 100%;
+.barre{ width: 100%;
         height:40px;
      background-color: #3b5998;
      position:fixed;
      top:0px;
      margin:0px;
      display:flex;
-    
+    z-index: 99;
         }
 
-#barre a{
+.barre a{
     line-height :28px;
     font-weight:bold;
      padding-right:20px;
@@ -60,7 +60,7 @@ a{ text-decoration: none;
 #formu{
     display:flex;
     justify-content: center;
-   width:300px;
+   width:200px;
     flex-direction: column;
  
  
@@ -137,3 +137,21 @@ flex-direction: column;
 #profiluser{
     font-size:20px;
 }
+
+#infoprofil{
+    margin: auto;
+    justify-content: center;
+    display:flex;
+}
+
+#messagess{
+    display:flex; 
+    justify-content: center;
+    position:relative;
+    align-items:center;
+    align-content: center;
+    flex-direction:column;
+    top:696px;}
+   
+
+#com{ border-bottom:1px solid black}

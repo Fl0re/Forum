@@ -189,4 +189,28 @@ function modifier($question){
   ));
   return $pdo->rowCount();
 }
- ?>
+
+function commentaire($commentaire){
+    $connexion = getconnexion();
+    $pdo = $connexion->prepare('INSERT INTO commentaire SET commentaire=:commentaire, username=:username, datecreate=NOW()');
+
+    $pdo->execute(array(
+      'commentaire'=>$commentaire,
+   
+      'username' => $username
+      
+    ));
+
+    $result = $pdo->rowCount();
+    return $result;
+}
+
+function getcommentaire(){
+  $connexion = getconnexion();
+$object = $connexion->prepare('SELECT * FROM commentaire');
+ $object->execute(array());
+$forums = $object->fetchAll(PDO::FETCH_ASSOC);
+return $forums;
+ }
+
+  ?>

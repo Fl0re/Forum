@@ -45,13 +45,16 @@ session_start();
         include("views/profil.php");
         break;
 
-      case "Votreforum": // views/formulaire.php
-        $feedback = getFeedback();
+      case "discut": // views/formulaire.php
+          $feedback = getFeedback();
         $nombreUtilisateur = getNombreUtilisateurs();
+        $questions= getquestions();
+        $forums = getforums();
+        $user= $_SESSION["user"];
    
         //  var_dump($questions);
         //  die();
-        include("views/Votreforum.php");
+        include("views/discut.php");
         break;
 
       // Créer une nouvelle page (juste un template)

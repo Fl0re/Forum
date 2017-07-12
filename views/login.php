@@ -29,7 +29,7 @@
         </section>
         </section>
     <header> 
- <ul>
+
      
 
         <section id= "formulaire">
@@ -46,7 +46,7 @@
                 <label> Email </label>
                 <br>
                 
-                <<input type="text" id="email" name="email"/>br>
+                <input type="text" id="email" name="email"/><br>
                 <label> Mot de passe </label>
                 <br>
                 <input type="password" id="mdp" name="password"/>

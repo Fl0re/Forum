@@ -30,11 +30,11 @@ header('Content-Type: text/html; charset=UTF8');
     </section>-->
 
     
-    <section id="barre">
-        <a id="accueil" href="#profil"> Accueil </a>
-         <a id="profile" href="#profil"> Profil </a>
-          <a id="mesdiscut" href="#bulle"> Discussions avec tes amis </a>
-           <a id="favoris" href="#tforum"> Discussions favorite </a>
+    <section class="barre">
+     <a id="Profil" href="index.php?page=profil"> Profil </a>
+         <a id="Creer une discussion " href="index.php?page=profil"> Creer une discussion  </a>
+          <a id="mesdiscut" href="index.php?page=discut&#valide"> Discussions avec tes amis </a>
+       
            <form action="service/servicedeco.php" method="post">
               <input type="submit" value="déconnexion" id="ok" />
             </form>
@@ -42,21 +42,20 @@ header('Content-Type: text/html; charset=UTF8');
      <h1 id="profil"> PROFIL  </h1>
 
      <p> Bienvenue 
-<?php 
-    echo"<p id='profiluser'>";
+
+    <p id='profiluser'>
   
-  
-        echo $user['username'];
-    echo"</p>";
+  <?php 
+        echo $user['username']; ?>
+    </p>
  
-     ?>
+    
 
-<h2> Mon profil </h2>
+<section id="infoprofil">
 
-<h4> Surnom : </h4> <?php echo $user['username']; ?>
 
-<h4> email : </h4> <?php echo $user['email']; ?>
-
+<h4> email : </h4> <br> <?php echo $user['email']; ?>
+</section>
 
 
 
@@ -110,13 +109,13 @@ header('Content-Type: text/html; charset=UTF8');
                 echo" <input  type='submit' value='X' id='ok' />";
                 echo"<input type='hidden' name='id' value='{$result['id']}' />";
               echo"</form>";
-       
+             
                
-              
+               
             
                 echo"<br>";
                 echo "<div id='username'>";
-                echo $user['username'];;
+                echo $user['username'];
                 
                 echo"<br>";
                 echo($result["datecreate"]); 
@@ -125,69 +124,50 @@ header('Content-Type: text/html; charset=UTF8');
                 echo"<br>";
                 echo($result["question"]);   
                 echo"<br>";
-                 echo"<br>";
+                echo" <form   action='service/servicecommentaire.php'  method='post'>";
+                echo" <input  type='texte' name='commentaire' placeholder='Commentaires' />";
+                    echo" <input  type='submit' value='ok'/>";
+                     echo"<br>";
+                    if (!empty($questions)):
+        
+       $commentaire= getcommentaire(); 
+       foreach($commentaire as $result){
+           echo"<section id='com'>";
+                echo($user["username"]);
+                echo"<br>";
+                echo $result['commentaire']; 
+                echo"<br>";
+               
+                echo"<br>";
+                echo"</section>";
                 
+       }    
+    endif; 
+                echo"<input type='hidden' name='id' value='{$result['id']}' />";
+              echo"</form>";
+             
            
+              
              echo"</section>";
-  
-        }
-     
  
+     
+       }
   ?>
+  <?php endif; ?>
+
+
+ 
+
+    
 </session>
   <session id="sms">
-     <?php endif; ?>
-
-           <?php if (!empty($questions)):?>
-        <?php 
-
-       $questions= getquestions(); 
-       foreach($questions as $result){
-                echo($result["sujet"]);
-                echo"<br>";
-                
-       }
-
-        foreach($questions as $result){
-            echo"<section id='bulle'>";
-            echo"<div id='usr'>";
-                echo $user['username'];;
-                echo"<br>";
-                  echo($result["datecreate"]); 
-                 echo"<br>";
-                 echo"</div>";
-                 echo"<br>";
-                 echo"<div id='descri'>";
-                echo($result["description"]);   
-                 echo"<br>";
-                echo"</div>";
-                 echo"</section>";
-            
-       
-       
-        }
-       
-
-  ?>
-     <?php endif; ?>
-
-     <session id="discut">
-    <form  id="formu" action="service/serviceforum.php"  method="post">
     
-    <label> Discution personne connectées </label>
-    <textarea id="description" type="text" name="description">
 
-
-      </textarea>
           
-   
-         <input type="submit" value="valider" />
 
-    </form>
-
-    </session>
-
-    </session>
+    
+       <script src="views/jquery-3.2.1.min.js"></script>
+    <script src="views/script.js"></script>
 </head>
 <body>
     
