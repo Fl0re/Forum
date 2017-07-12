@@ -133,3 +133,7 @@ flex-direction: column;
 #usr { background-color: orangered;
         color:white;
 }
+
+#profiluser{
+    font-size:20px;
+}

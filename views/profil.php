@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 header('Content-Type: text/html; charset=UTF8');
 
 
@@ -31,15 +31,43 @@ header('Content-Type: text/html; charset=UTF8');
 
     
     <section id="barre">
-        <a id="accueil" href="/"> Accueil </a>
-         <a id="profil" href="/"> Profil </a>
-          <a id="mesdiscut" href="/"> Mas discussions </a>
-           <a id="favoris" href="/"> Discussions favorite </a>
+        <a id="accueil" href="#profil"> Accueil </a>
+         <a id="profile" href="#profil"> Profil </a>
+          <a id="mesdiscut" href="#bulle"> Discussions avec tes amis </a>
+           <a id="favoris" href="#tforum"> Discussions favorite </a>
            <form action="service/servicedeco.php" method="post">
               <input type="submit" value="déconnexion" id="ok" />
             </form>
      </section>
-    <h1> FORUM </h1>
+     <h1 id="profil"> PROFIL  </h1>
+
+     <p> Bienvenue 
+<?php 
+    echo"<p id='profiluser'>";
+  
+  
+        echo $user['username'];
+    echo"</p>";
+ 
+     ?>
+
+<h2> Mon profil </h2>
+
+<h4> Surnom : </h4> <?php echo $user['username']; ?>
+
+<h4> email : </h4> <?php echo $user['email']; ?>
+
+
+
+
+
+
+
+
+
+
+
+    <h1 id="tforum"> FORUM </h1>
 
     <p> Bienvenue sur le forum </p>
     
@@ -81,11 +109,14 @@ header('Content-Type: text/html; charset=UTF8');
             echo" <form   action='service/servicesupprimer.php'  method='post'>";
                 echo" <input  type='submit' value='X' id='ok' />";
                 echo"<input type='hidden' name='id' value='{$result['id']}' />";
+              echo"</form>";
+       
+               
               
-            echo"</form>";
+            
                 echo"<br>";
                 echo "<div id='username'>";
-                echo($result["username"]);
+                echo $user['username'];;
                 
                 echo"<br>";
                 echo($result["datecreate"]); 
@@ -95,7 +126,8 @@ header('Content-Type: text/html; charset=UTF8');
                 echo($result["question"]);   
                 echo"<br>";
                  echo"<br>";
-            
+                
+           
              echo"</section>";
   
         }
@@ -119,7 +151,7 @@ header('Content-Type: text/html; charset=UTF8');
         foreach($questions as $result){
             echo"<section id='bulle'>";
             echo"<div id='usr'>";
-                echo($result["username"]);
+                echo $user['username'];;
                 echo"<br>";
                   echo($result["datecreate"]); 
                  echo"<br>";

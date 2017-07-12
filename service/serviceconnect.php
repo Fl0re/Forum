@@ -6,21 +6,18 @@ include "../model/fonctions.php";
   $password= $_POST["passwords"];
 
 
-  $username = verificationusername($email);
-$_SESSION['questions']=$username[0]["username"];
-
-$result= verification($email);
-$resultat = verification2($email);
+  $user = verificationusername($email,$password);
 
 
- if(empty($result)) {
- header("location: ../index.php?page=login&connexion=error");
- } 
-
-if($resultat[0][uPassword] == $password){
+ if(empty($user)) {
+      header("location: ../index.php?page=login&connexion=error");
+ } else {
+  $_SESSION['user']=$user[0];
   header("location: ../index.php?page=profil&connexion=succes");
-}
-else header("location: ../index.php?page=login&connexion=error");
+ }
+
+
+
 
 print_r($resultat);
 // if(!empty($result) && !empty($resultat)){

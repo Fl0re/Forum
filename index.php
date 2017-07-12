@@ -1,5 +1,6 @@
 
 <?php
+session_start();
     include_once("model/fonctions.php");
     $page = getPage();
 
@@ -33,17 +34,18 @@
         break;
 
 
-          case "profil": // views/formulaire.php
+      case "profil": // views/formulaire.php
         $feedback = getFeedback();
         $nombreUtilisateur = getNombreUtilisateurs();
         $questions= getquestions();
         $forums = getforums();
-        //  var_dump($questions);
+        $user= $_SESSION["user"];
+          // var_dump($user['email']);
         //  die();
         include("views/profil.php");
         break;
 
-        case "Votreforum": // views/formulaire.php
+      case "Votreforum": // views/formulaire.php
         $feedback = getFeedback();
         $nombreUtilisateur = getNombreUtilisateurs();
    

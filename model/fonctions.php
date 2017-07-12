@@ -84,7 +84,23 @@ function verification2($email){
 
 }
 
-function verificationusername($email){
+function verificationusername($email,$password){
+  $connexion = getconnexion();
+
+  $pdo = $connexion->prepare('SELECT username,email FROM user WHERE  email=:email AND uPassword=:password');
+  $pdo->execute(
+    array(
+      'email'=>$email,
+      'password'=>$password,
+     
+    ));
+  $user = $pdo->fetchAll(PDO::FETCH_ASSOC);
+
+  return $user;
+
+}
+
+function checkinlogin($email){
   $connexion = getconnexion();
 
 
@@ -99,6 +115,7 @@ function verificationusername($email){
   return $user;
 
 }
+
 function affichage($sujet, $description, $username){
     $connexion = getconnexion();
     $pdo = $connexion->prepare('INSERT INTO questions SET description=:description, sujet=:sujet, username=:username, datecreate=NOW()');
@@ -160,5 +177,16 @@ function supprimer($id){
   return $pdo->rowCount();
 
 
+}
+
+function modifier($question){
+  $connexion = getconnexion();
+
+    $pdo = $connexion->prepare('  UPDATE forums SET question=:question WHERE id=1 ');
+  $pdo->execute(array(
+    'question'=>$question,
+     
+  ));
+  return $pdo->rowCount();
 }
  ?>
