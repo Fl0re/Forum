@@ -31,3 +31,14 @@ pas besoin de faire un commit de tous les packages que tu installes
 -On en reparle si tu veux.
 
 
+/*******************************************
+* Alfonso UPDATE: On voir qu'il y a une grosse progression entre les premiers
+* commits et les derniers. Tu as bien compris la structure MVC et les appels en base de données.
+*
+* Tu as bien saisi la logique général et c'était pas gagner car tu n'as pas été là toute une semaine.
+*
+* Il faut travailler encore pour bien absorber ce modèle MVC ainsi que les appels en base de données.
+* En tout cas au final tu as atteri sur tes pattes comme un chat. Il reste à confirmer ce que tu sais
+* C'est ce que nous verrons par la suite car nous essaierons d'implémenter cette logique MVC mais avec
+* des objets cette fois.
+* Essaie de continuer quand tu auras du temps.
